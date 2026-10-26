@@ -5,7 +5,7 @@ Dein Ziel: der **größte** und **beste** Flughafen der Welt.
 
 Ein Browserspiel ohne Installation, ohne Abhängigkeiten – reines HTML, CSS und JavaScript.
 
-▶ **Spielen:** `https://<dein-github-name>.github.io/airport-empire/` (nach Aktivierung von GitHub Pages, siehe unten)
+▶ **Spielen:** <https://dennisotte.github.io/airport-empire/>
 
 ---
 
@@ -93,7 +93,7 @@ Dann `http://localhost:8000` aufrufen. Der Spielstand wird automatisch im Browse
 1. Repository auf GitHub anlegen (z. B. `airport-empire`) und alle Dateien hochladen.
 2. Im Repository: **Settings → Pages → Build and deployment → Source: „Deploy from a branch“**.
 3. Branch `main` und Ordner `/ (root)` wählen, speichern.
-4. Nach etwa einer Minute ist das Spiel unter `https://<dein-name>.github.io/airport-empire/` erreichbar.
+4. Nach etwa einer Minute ist das Spiel unter `https://dennisotte.github.io/airport-empire/` erreichbar.
 
 ## Projektstruktur
 
