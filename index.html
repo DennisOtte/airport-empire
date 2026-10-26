@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Airport Empire – Flughafen-Tycoon &amp; Flugsimulator</title>
+  <meta name="description" content="Baue deinen eigenen Flughafen, bringe ihn wirtschaftlich voran und fliege Strecken selbst im Simulator – bis dein Airport der größte und beste der Welt ist.">
+  <meta name="theme-color" content="#0d1620">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d1620'/%3E%3Cpath d='M32 8l5 20 20 8v5l-20-4-2 12 7 5v4l-10-3-10 3v-4l7-5-2-12-20 4v-5l20-8z' fill='%23ffb703'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Titelbildschirm -->
+<div id="title" class="title">
+  <div class="title-sky"></div>
+  <div class="title-runway"></div>
+  <div class="title-card">
+    <div class="logo">✈</div>
+    <h1>Airport Empire</h1>
+    <p class="lead">Baue deinen Flughafen, bringe ihn wirtschaftlich voran – und fliege die Strecken selbst im Simulator.</p>
+    <form id="newForm" autocomplete="off">
+      <label>Name deines Flughafens
+        <input id="airportName" maxlength="28" value="Skyline International" spellcheck="false">
+      </label>
+      <label>Heimatstadt
+        <select id="homeCity"></select>
+      </label>
+      <div class="row">
+        <button type="submit" class="btn primary big">Neues Spiel starten</button>
+        <button type="button" id="continueBtn" class="btn big" hidden>Weiterspielen</button>
+      </div>
+    </form>
+    <ul class="pitch">
+      <li><b>Bauen &amp; wachsen</b> Pisten, Gates, Terminals, Shops, Hotels – wie in einem Aufbauspiel.</li>
+      <li><b>Wirtschaft</b> Gebühren, Service, Kredite, Fluglinie und Weltrangliste.</li>
+      <li><b>Selbst fliegen</b> Start, Reiseflug und Landung im Flugsimulator.</li>
+    </ul>
+    <p class="fine">Spielstand wird automatisch im Browser gespeichert.</p>
+  </div>
+</div>
+
+<!-- Spiel -->
+<div id="app" hidden>
+  <header class="top">
+    <div class="brand"><span class="logo-s">✈</span><div><b id="apName">Airport</b><small id="apLevel"></small></div></div>
+    <div class="stats">
+      <div class="stat" title="Kontostand"><span>Kasse</span><b id="stCash">–</b></div>
+      <div class="stat" title="Passagiere am letzten Tag"><span>Passagiere/Tag</span><b id="stPax">–</b></div>
+      <div class="stat" title="Gesamtbewertung (Service, Sicherheit, Pünktlichkeit)"><span>Bewertung</span><b id="stRating">–</b></div>
+      <div class="stat" title="Ruf bei Airlines und Reisenden"><span>Ruf</span><b id="stRep">–</b></div>
+      <div class="stat" title="Spielzeit"><span>Datum</span><b id="stDate">–</b></div>
+    </div>
+    <div class="ctl">
+      <div class="speed" id="speed">
+        <button data-speed="0" title="Pause (Leertaste)">⏸</button>
+        <button data-speed="1" title="Normal (1)">▶</button>
+        <button data-speed="2" title="Schnell (2)">▶▶</button>
+        <button data-speed="4" title="Sehr schnell (3)">▶▶▶</button>
+        <button data-speed="8" title="Turbo (4)">⏩</button>
+      </div>
+      <button class="icon-btn" id="muteBtn" title="Ton an/aus">🔊</button>
+      <button class="icon-btn" id="menuBtn" title="Menü">☰</button>
+    </div>
+  </header>
+
+  <div class="main">
+    <section class="stage">
+      <div class="canvaswrap">
+        <canvas id="map"></canvas>
+        <div id="toasts"></div>
+        <div id="bankrupt" class="bankrupt" hidden></div>
+      </div>
+      <div class="hintbar" id="hintbar"></div>
+      <div class="tools">
+        <div class="cats" id="cats"></div>
+        <div class="items" id="items"></div>
+      </div>
+    </section>
+    <aside class="side">
+      <nav class="tabs" id="tabs"></nav>
+      <div class="panel" id="panel"></div>
+    </aside>
+  </div>
+</div>
+
+<div id="modal" class="modal" hidden><div class="card" id="modalCard"></div></div>
+
+<script src="js/data.js"></script>
+<script src="js/economy.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/tycoon.js"></script>
+<script src="js/flightcore.js"></script>
+<script src="js/flightsim.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>
